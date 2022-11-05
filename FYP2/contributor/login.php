@@ -7,7 +7,7 @@ if ((!empty($_POST['uname']) && !empty($_POST['password']))
         $uname = $_POST['uname'];
         $password = $_POST['password'];
 
-        $contributeRow = "Select * from contribute where uname = '$uname'";
+        $contributeRow = "Select * from contribute_h where uname = '$uname'";
         if($result = mysqli_query($conn,$contributeRow)){
             $count = mysqli_num_rows($result);
             if($count == 0){
@@ -28,7 +28,7 @@ if ((!empty($_POST['uname']) && !empty($_POST['password']))
                     echo '<script language="javascript" type="text/javascript">
                     alert("Login Successfull!Welcome to Healthcare Assistance");
                     </script>';
-                header("Refresh:1; url=dashboard.html");
+                header("Refresh:1; url=dashboard.php");
                 }
                 else{
                     echo '<script language="javascript" type="text/javascript">

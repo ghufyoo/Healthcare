@@ -1,15 +1,11 @@
 <?php
-session_start();
 require('../connection.php');
+session_start();
 if (isset($_SESSION['id_assist'])) {
-    $assist = mysqli_query($conn, "Select * from assistance_h where id_assist = '".$_SESSION['id_assist']."'");
+    $assist = mysqli_query($conn, "SELECT * fROM assistance_h WHERE id_assist = '".$_SESSION['id_assist']."'");
     $assistRow = mysqli_fetch_array($assist);
 }else{
-    echo '<script language="javascript" type="text/javascript">
-        alert("Dear user, Login is required to proceed! Thank you. ");
-        </script>';
-    header("Refresh:1; url=login.html");
-    exit();
+    
 }
 ?>
 

@@ -1,5 +1,3 @@
-
-
 <?php
 require('../connection.php'); // connect database
 session_start(); // connect session to make sure its the right user that login, not different acc

@@ -13,7 +13,7 @@
 <body class="registration">
     <h1>New Registration</h1>
     <p>Create your account its only takes a minute</p>
-    <form action="signup.php" class="rform" method="post" enctype="multipart/form-data">
+    <form action="signup.php" class="rform" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <input type="text" class="input " name="first_name" id="first_name" placeholder="First Name" required>
             <input type="text" class="input" name="last_name" id="last_name" placeholder="Last Name" required>
@@ -26,9 +26,6 @@
             <input type="password" class="input" name="password" id="password" placeholder="Password" required>
         </div>
         <div class="form-group">
-            <input type="password" class="input" name="cpassword" id="cpassword" placeholder="Confirm Password" required>
-        </div>
-        <div class="form-group">
             <input type="text" class="input" name="ic" id="ic" placeholder="Identification Number" required>
             <input type="text" class="input" name="phone" id="phone" placeholder="Phone Number" required>
             <input type="text" class="input" name="email" id="email" placeholder="Email Address" required>
@@ -36,7 +33,7 @@
         <div class="form-group rbutton">
             <button class=""><a href="login.html">Go Back</a></button>
             <button type="reset">Reset</button>
-            <button type="submit" name="submit" id="submit">Register</button>
+            <button type="submit" name="signup" id="signup">Register</button>
         </div>
     </form>
 </body>

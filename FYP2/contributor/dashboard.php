@@ -2,7 +2,13 @@
 session_start();
 require('../connection.php');
 if(isset($_SESSION['id_contribute'])){
-    $contribute = msqli_query($conn, "Select * from ");
+    $contribute = mysqli_query($conn, "SELECT * FROM contribute_h WHERE id_contribute = '".$_SESSION['id_contribute']."'");
+    $contributeRow = mysqli_fetch_array($contribute);
+}else{
+    echo '<script language="javascript" type="text/javascript">
+        alert("Dear user, Login is required to proceed! Thank you. ");
+        </script>';
+    header("Refresh:1; url=login.html");
 }
 ?>
 <!DOCTYPE html>
@@ -153,7 +159,7 @@ if(isset($_SESSION['id_contribute'])){
     </nav>
     <div class="line"></div>
     <div class="status">
-        <p>Status</p>
+        <p><?php echo $contributeRow['status'];?></p>
     </div>
     <div class="information">
         <h3>Applicant Information Detail</h3>
@@ -161,27 +167,27 @@ if(isset($_SESSION['id_contribute'])){
         <div class="details">
             <p class="detail">Name:</p>
             <div class="info-detail">
-                <p class="info">First Name</p>
+                <p class="info"><?php echo $contributeRow['f_name'];?> <?php echo $contributeRow['l_name'];?></p>
             </div>
             <p class="detail">Identification Number:</p>
             <div class="info-detail">
-                <p class="info">First Name</p>
+                <p class="info"><?php echo $contributeRow['ic_no'];?></p>
             </div>
             <p class="detail">Phone Number:</p>
             <div class="info-detail">
-                <p class="info">First Name</p>
+                <p class="info"><?php echo $contributeRow['phone_no'];?></p>
             </div>
             <p class="detail">Email:</p>
             <div class="info-detail">
-                <p class="info">First Name</p>
+                <p class="info"><?php echo $contributeRow['email'];?></p>
             </div>
             <p class="detail">Address:</p>
             <div class="info-detail">
-                <p class="info">First Name</p>
+                <p class="info"><?php echo $contributeRow['address'];?></p>
             </div>
             <p class="detail">Status:</p>
             <div class="info-detail">
-                <p class="info">First Name</p>
+                <p class="info"><?php echo $contributeRow['status'];?></p>
             </div>
         </div>
     </div>

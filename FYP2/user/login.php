@@ -7,7 +7,7 @@ if ((!empty($_POST['username']) && !empty($_POST['password']))
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $userRow = "Select * from assistance_h where username = '$username'";
+        $userRow = "Seln  ect * from assistance_h where username = '$username'";
         if($result = mysqli_query($conn,$userRow)){
             $count = mysqli_num_rows($result);
             if($count == 0){

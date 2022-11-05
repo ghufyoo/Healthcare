@@ -4,21 +4,25 @@ session_start();
 
 if (isset($_POST['signup'])) {
 
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
     $address = $_POST['address'];
-    $uname = $_POST['uname'];
+    $username = $_POST['username'];
     $password = $_POST['password'];
-    $ic = $_POST['ic'];
+    $ic = $_POST['ic']; 
     $phone = $_POST['phone'];
     $email = $_POST['email'];
+    $cost = $_POST['cost'];
+    $bank = $_POST['bank'];
+    $acc_name = $_POST['acc_name'];
+    $acc_no = $_POST['acc_no'];
 
-    $sql = "SELECT * FROM contribute_h WHERE uname='$uname'";
+    $sql = "SELECT * FROM assistance_h WHERE username='$username'";
 
     $result = mysqli_query($conn,$sql);
     if(!$result->num_rows>0) {
-        $insertSql = "INSERT INTO contribute_h (f_name,l_name,address,uname,password,ic_no,phone_no,email)
-                      VALUES ('$first_name','$last_name','$address','$uname','$password','$ic','$phone','$email')";
+        $insertSql = "INSERT INTO assistance_h (first_name,last_name,username,password,ic_no,phone_no,email,address,cost,bank_name,account_holder,account_no)
+                VALUES ('$fname','$lname','$username','$password','$ic','$phone','$email','$address','$cost','$bank','$acc_name','$acc_no')";
 
         $insertResult = mysqli_query($conn,$insertSql);
         if($insertResult){
@@ -28,8 +32,8 @@ if (isset($_POST['signup'])) {
             header("Refresh:1; url=login.html");
         }else{
             echo '<script language="javascript" type="text/javascript">
-            alert("Woops! Something went wrong.");  
-            </script>';
+                          alert("Woops! Something went wrong.");  
+                          </script>';
             header("Refresh:1; url=login.html");
         }
     }
